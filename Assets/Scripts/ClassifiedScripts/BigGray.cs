@@ -1,6 +1,4 @@
-
 /*
- 
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,7 +13,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 
-public class BigGrey : MonoBehaviour
+public class BigGray : MonoBehaviour
 {
     [Header("AppsFlyer")] public string devKey;
     [HideInInspector] public string appID;
@@ -228,12 +226,11 @@ public class BigGrey : MonoBehaviour
                 { "data", AppsFlyer.CallbackStringToDictionary(_conversionData) },
                 { "deeplink", PlayerPrefs.GetString("DeepLink") },
                 { "gaid", GetGaid() },
+                { "device_info", new Dictionary<string, object>
                 {
-                    "device_info",
-                    new DeviceData
-                    {
-                        charging = SystemInfo.batteryStatus == BatteryStatus.Charging
-                    }
+                    { "charging", SystemInfo.batteryStatus == BatteryStatus.Charging }
+                }
+                    
                 }
             };
 
